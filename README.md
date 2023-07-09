@@ -1,1 +1,1 @@
-![image](https://github.com/rehfeld13/oficina-2.0/assets/88861731/d8ae7427-1e0d-4a07-8bf4-5303c781bef3)
+![OFICINA](https://github.com/rehfeld13/oficina-2.0/assets/88861731/e9ef3fe0-8335-4d42-a5c3-63497926faac)
