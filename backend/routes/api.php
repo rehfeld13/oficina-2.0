@@ -4,13 +4,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Budget\UserBudgetController;
 
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
+/**
+ * Budget routes.
+ */
 Route::get('/budgets', [UserBudgetController::class, 'index']);
+
+/**
+ * Get a budget by ID.
+ */
 Route::get('/budget/{id}', [UserBudgetController::class, 'readById']);
-Route::post('/createbudget',[UserBudgetController::class,'create']);
+
+/**
+ * Create a new budget.
+ */
+Route::post('/createbudget', [UserBudgetController::class, 'create']);
+
+/**
+ * Update a budget by ID.
+ */
 Route::put('/editbudget/{id}', [UserBudgetController::class, 'update']);
+
+/**
+ * Delete a budget by ID.
+ */
 Route::delete('/deletebudget/{id}', [UserBudgetController::class, 'delete']);

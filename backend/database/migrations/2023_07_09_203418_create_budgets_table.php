@@ -6,7 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
+    /**
+     * Run the migration.
+     *
+     * @return void
+     */
     public function up(): void
     {
         Schema::create('budgets', function (Blueprint $table) {
@@ -19,6 +23,11 @@ return new class extends Migration
         });
     }
 
+    /**
+     * Reverse the migration.
+     *
+     * @return void
+     */
     public function down(): void
     {
         Schema::dropIfExists('budgets');

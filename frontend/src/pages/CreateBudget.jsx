@@ -9,6 +9,17 @@ import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
 import { format } from 'date-fns';
 
+/*
+  I used the following libraries:
+
+  @ant-design/icons -  library for icons.
+  react-toastify -  library for slide effects with success or error messages.
+  react-datetime-picker - library to capture date and time in a custom way.
+  date-fns - library to format date and time.
+*/
+
+
+
 export function CreateBudget() {
   const { http } = Api();
 
@@ -22,7 +33,7 @@ export function CreateBudget() {
   const [nameSellerError, setNameSellerError] = useState(false);
   const [descriptionError, setDescriptionError] = useState(false);
   const [valueError, setValueError] = useState(false);
-  const [dateAndTimeError,setDateAndTimeError] = useState(false);
+  const [dateAndTimeError, setDateAndTimeError] = useState(false);
 
 
   const handleNameClient = (event) => {
@@ -47,14 +58,13 @@ export function CreateBudget() {
 
   const handleDateAndTime = (date) => {
     setDateAndTime(date);
-    setDateAndTimeError(false)
+    setDateAndTimeError(false);
   };
 
   const handleForm = (event) => {
     event.preventDefault();
 
     if (!nameClient || !nameSeller || !description || !value || !dateAndTime) {
-
       if (!nameClient) setNameClientError(true);
       if (!nameSeller) setNameSellerError(true);
       if (!description) setDescriptionError(true);
@@ -96,31 +106,55 @@ export function CreateBudget() {
       <h1 className="text-zinc-50 text-center font-bold text-5xl">Cadastrar orçamento</h1>
 
       <form className="flex flex-col items-center w-10/12 gap-8">
-        <div className=" flex flex-col w-full gap-1 ">
+        <div className="flex flex-col w-full gap-1">
           <label className="text-zinc-50">Nome do cliente</label>
-          <input type="text" value={nameClient} onChange={handleNameClient} placeholder="Nome do cliente" className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${nameClientError ? 'border-red-500' : 'border-transparent'} `} />
+          <input
+            type="text"
+            value={nameClient}
+            onChange={handleNameClient}
+            placeholder="Nome do cliente"
+            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${nameClientError ? 'border-red-500' : 'border-transparent'} `}
+          />
         </div>
 
-        <div className=" flex flex-col w-full gap-1 ">
+        <div className="flex flex-col w-full gap-1">
           <label className="text-zinc-50">Nome do vendedor</label>
-          <input type="text" value={nameSeller} onChange={handleNameSeller} placeholder="Nome do vendedor" className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${nameSellerError ? 'border-red-500' : 'border-transparent'} `} />
+          <input
+            type="text"
+            value={nameSeller}
+            onChange={handleNameSeller}
+            placeholder="Nome do vendedor"
+            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${nameSellerError ? 'border-red-500' : 'border-transparent'} `}
+          />
         </div>
 
-        <div className=" flex flex-col w-full gap-1 ">
+        <div className="flex flex-col w-full gap-1">
           <label className="text-zinc-50">Descrição do orçamento</label>
-          <textarea rows={3} value={description} onChange={handleDescription} placeholder="Descrição do orçamento" className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${descriptionError ? 'border-red-500' : 'border-transparent'} `} />
+          <textarea
+            rows={3}
+            value={description}
+            onChange={handleDescription}
+            placeholder="Descrição do orçamento"
+            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${descriptionError ? 'border-red-500' : 'border-transparent'} `}
+          />
         </div>
 
-        <div className=" flex flex-col w-full gap-1 ">
+        <div className="flex flex-col w-full gap-1">
           <label className="text-zinc-50">Valor do orçamento (R$)</label>
-          <input type="number" value={value} onChange={handleValue} placeholder="Valor do orçamento" className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${valueError ? 'border-red-500' : 'border-transparent'} `} />
+          <input
+            type="number"
+            value={value}
+            onChange={handleValue}
+            placeholder="Valor do orçamento"
+            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${valueError ? 'border-red-500' : 'border-transparent'} `}
+          />
         </div>
 
         <div className="flex flex-col w-full gap-1">
           <label className="text-zinc-50">Data e hora</label>
           <div className="border-2 border-transparent p-2 rounded bg-slate-900 focus:border-orange-500">
             <DateTimePicker
-              className={`flex item-center justify-center border-2 text-zinc-100 bg-slate-950 rounded-sm ${dateAndTimeError ? 'border-red-500' : 'border-transparent'}   `}
+              className={`flex item-center justify-center border-2 text-zinc-100 bg-slate-950 rounded-sm ${dateAndTimeError ? 'border-red-500' : 'border-transparent'} `}
               onChange={handleDateAndTime}
               value={dateAndTime}
               format="dd-MM-yyyy  HH:mm"
@@ -133,7 +167,10 @@ export function CreateBudget() {
           </div>
         </div>
 
-        <button type="submit" onClick={handleForm} className="w-full border border-orange-500 ease-in duration-150 text-zinc-50 rounded p-3 hover:bg-orange-500">
+        <button
+          type="submit"
+          onClick={handleForm}
+          className="w-full border border-orange-500 ease-in duration-150 text-zinc-50 rounded p-3 hover:bg-orange-500">
           Cadastrar
         </button>
       </form>

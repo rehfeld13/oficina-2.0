@@ -5,11 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Budget
+ * @package App\Models
+ */
 class Budget extends Model
 {
     use HasFactory;
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
     public $timestamps = false;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'nameClient',
         'nameSeller',
@@ -17,6 +32,4 @@ class Budget extends Model
         'value',
         'dateAndTime',
     ];
-
-
 }
