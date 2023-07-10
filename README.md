@@ -49,12 +49,12 @@ Com o PHP e o Composer devidamente instalados, siga os passos abaixo para config
 
 ![image](https://github.com/rehfeld13/oficina-2.0/assets/88861731/a33aff06-7d3a-4d8d-b164-b4420b6de420)
 
-6. Antes que me esqueça, execute o seguinte comando para gerar uma chave única(`APP_KEY`) para o projeto:
+5. Antes que me esqueça, execute o seguinte comando para gerar uma chave única(`APP_KEY`) para o projeto:
    ```
    php artisan key:generate
    ```
    
-7. Agora, você deve criar um DATABASE em seu banco de dados com o mesmo nome que você colocou no seu `DB_DATABASE`, vamos lá:
+6. Agora, você deve criar um DATABASE em seu banco de dados com o mesmo nome que você colocou no seu `DB_DATABASE`, vamos lá:
 - Abra o terminal e execute o seguinte comando para acessar o prompt de comando do MySQL:
    ```
    mysql -u seu_usuario -p
