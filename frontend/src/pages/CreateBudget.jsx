@@ -24,6 +24,7 @@ export function CreateBudget() {
   const [valueError, setValueError] = useState(false);
   const [dateAndTimeError,setDateAndTimeError] = useState(false);
 
+
   const handleNameClient = (event) => {
     setNameClient(event.target.value);
     setNameClientError(false);
@@ -53,6 +54,7 @@ export function CreateBudget() {
     event.preventDefault();
 
     if (!nameClient || !nameSeller || !description || !value || !dateAndTime) {
+
       if (!nameClient) setNameClientError(true);
       if (!nameSeller) setNameSellerError(true);
       if (!description) setDescriptionError(true);
@@ -66,9 +68,9 @@ export function CreateBudget() {
       return;
     }
 
-    const formattedDateAndTime = format(dateAndTime, 'dd-MM-yyyy HH:mm');
+    const formattedDateAndTime = format(dateAndTime, 'yyyy-MM-dd\'T\'HH:mm:ss');
 
-    http.post('/createbudget', { nameClient: nameClient, nameSeller:nameSeller, description:description, value: value, dateAndTime: formattedDateAndTime })
+    http.post('/createbudget', { nameClient, nameSeller, description, value, dateAndTime: formattedDateAndTime })
       .then(res => {
         toast.success(res.data.msg, {
           position: toast.POSITION.BOTTOM_LEFT,
@@ -123,9 +125,9 @@ export function CreateBudget() {
               value={dateAndTime}
               format="dd-MM-yyyy  HH:mm"
               locale="pt-BR"
-              calendarIcon={<CalendarOutlined />}
+              calendarIcon={<CalendarOutlined className="hover:text-orange-500" />}
               calendarClassName="bg-slate-950"
-              clearIcon={<CloseOutlined />}
+              clearIcon={<CloseOutlined className="hover:text-orange-500" />}
               disableClock={true}
             />
           </div>
@@ -135,6 +137,7 @@ export function CreateBudget() {
           Cadastrar
         </button>
       </form>
+
       <ToastContainer theme="dark" />
     </div>
   );

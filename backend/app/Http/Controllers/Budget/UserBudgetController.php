@@ -6,13 +6,33 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Budget;
+use Carbon\Carbon;
 
 class UserBudgetController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $budgets = Budget::all();
+        $query = Budget::query();
+
+        if ($request->has('clientName')) {
+            $query->where('nameClient', 'like', '%' . $request->input('clientName') . '%');
+        }
+
+        if ($request->has('sellerName')) {
+            $query->where('nameSeller', 'like', '%' . $request->input('sellerName') . '%');
+        }
+
+        if ($request->has('startDate') && $request->has('endDate')) {
+            $startDate = Carbon::createFromFormat('Y-m-d\TH:i:s', $request->input('startDate'));
+            $endDate = Carbon::createFromFormat('Y-m-d\TH:i:s', $request->input('endDate'))->endOfDay();
+            $query->whereBetween('dateAndTime', [$startDate, $endDate]);
+        }
+
+        $query->orderByDesc('dateAndTime');
+
+        $budgets = $query->get();
+
         return response()->json([
             'status' => '200',
             'budgets' => $budgets
@@ -56,11 +76,11 @@ class UserBudgetController extends Controller
             $model->nameSeller = $request->nameSeller;
             $model->description = $request->description;
             $model->value = $request->value;
-            $model->dateAndTime = $request->dateAndTime;
+            $model->dateAndTime = Carbon::createFromFormat('Y-m-d\TH:i:s', $request->dateAndTime);
             $model->save();
             return response()->json([
                 'status' =>'200',
-                'msg' => 'Orçamento Cadastrado com sucesso!'
+                'msg' => 'Orçamento cadastrado com sucesso!'
             ]);
         }
     }
@@ -73,7 +93,6 @@ class UserBudgetController extends Controller
             $budget->nameSeller = $request->nameSeller;
             $budget->description = $request->description;
             $budget->value = $request->value;
-            $budget->dateAndTime = $request->dateAndTime;
             $budget->save();
             return response()->json([
                 'message' => 'Orçamento editado com sucesso!'

@@ -4,9 +4,7 @@ import { SearchBudget } from './pages/SearchBudget'
 import { CreateBudget } from './pages/CreateBudget'
 import { EditBudget } from './pages/EditBudget'
 
-
 import { Header } from './components/Header'
-
 
 export function App() {
   return(

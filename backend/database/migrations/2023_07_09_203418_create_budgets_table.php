@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('nameSeller');
             $table->string('description');
             $table->integer('value');
-            $table->string('dateAndTime');
+            $table->datetime('dateAndTime');
         });
     }
 

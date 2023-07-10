@@ -1,6 +1,6 @@
-import axios from "axios"
-import { useState, useEffect } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 export function EditBudget(){
@@ -9,20 +9,26 @@ export function EditBudget(){
 
   const {id} = useParams()
 
-  const [budget, setBudget] = useState({ nameClient: '', nameSeller: '' , description: '', value: 0, dateAndTime: '' });
-
+  const [budget, setBudget] = useState(
+    { nameClient: '',
+      nameSeller: '' ,
+      description: '',
+      value: 0,
+      dateAndTime: ''
+    }
+  )
 
   useEffect(()=>{
-    fetchBudget();
+    fetchBudget()
   },[])
 
   const fetchBudget = () => {
-    axios.get(`http://localhost:8001/api/budget/`+ id)
+    axios.get(`http://localhost:8000/api/budget/`+ id)
       .then(res => {
-        setBudget(res.data.budget);
+        setBudget(res.data.budget)
       })
       .catch(error => {
-        console.log(error);
+        console.log(error)
       });
   }
 
@@ -34,7 +40,7 @@ export function EditBudget(){
   const handleSubmit = (event =>{
     event.preventDefault()
 
-    fetch(`http://localhost:8001/api/editbudget/`+ id,{
+    fetch(`http://localhost:8000/api/editbudget/`+ id,{
       method:'PUT',
       headers:{
         'Content-Type': 'application/json'
@@ -53,7 +59,7 @@ export function EditBudget(){
 
   return(
     <div className=" flex flex-col items-center justify-center mt-10 w-full gap-8">
-    <h1 className="text-zinc-50 font-bold text-center text-5xl">Editar Orçamento</h1>
+    <h1 className="text-zinc-50 font-bold text-center text-5xl">Editar Orçamento #{budget.id}</h1>
 
     <form onSubmit={handleSubmit} className="flex flex-col items-center w-10/12 gap-8">
       <div className="flex flex-col w-full gap-1">
