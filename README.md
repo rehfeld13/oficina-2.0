@@ -72,7 +72,7 @@ Com o PHP e o Composer devidamente instalados, siga os passos abaixo para config
     ```
    exit
    ```
-7. Execute o seguinte comando para executar as migrações e criar as tabelas no banco de dados:
+7. Agora no terminal do back-end, execute o seguinte comando para executar as migrações e criar as tabelas no banco de dados:
     ```
    php artisan migrate
    ```
