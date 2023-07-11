@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
   axios - library for making API requests.
   react-router-dom - library used to navigate to another page and to get parameters(ID).
-  
+
 */
 
 export function EditBudget() {
@@ -80,7 +80,7 @@ export function EditBudget() {
             value={budget.nameClient}
             onChange={handleChange}
             placeholder="Editar"
-            className="outline-none border-2 text-zinc-100 border-transparent p-2 rounded bg-slate-900 focus:border-orange-500"
+            className="outline-none border-2 text-zinc-100 border-transparent p-2 rounded bg-slate-900 focus:border-green-600"
           />
         </div>
 
@@ -92,7 +92,7 @@ export function EditBudget() {
             value={budget.nameSeller}
             onChange={handleChange}
             placeholder="Editar"
-            className="outline-none border-2 text-zinc-100 border-transparent p-2 rounded bg-slate-900 focus:border-orange-500"
+            className="outline-none border-2 text-zinc-100 border-transparent p-2 rounded bg-slate-900 focus:border-green-600"
           />
         </div>
 
@@ -104,7 +104,7 @@ export function EditBudget() {
             name="description"
             onChange={handleChange}
             placeholder="Editar"
-            className="outline-none text-zinc-100 border-2 border-transparent p-2 rounded bg-slate-900 focus:border-orange-500"
+            className="outline-none text-zinc-100 border-2 border-transparent p-2 rounded bg-slate-900 focus:border-green-600"
           />
         </div>
 
@@ -116,13 +116,13 @@ export function EditBudget() {
             value={budget.value}
             onChange={handleChange}
             placeholder="Editar"
-            className="outline-none border-2 text-zinc-100 border-transparent p-2 rounded bg-slate-900 focus:border-orange-500"
+            className="outline-none border-2 text-zinc-100 border-transparent p-2 rounded bg-slate-900 focus:border-green-600"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full border border-orange-500 ease-in duration-150 text-zinc-50 rounded p-3 hover:bg-orange-500">
+          className="w-full border border-green-600 ease-in duration-150 text-zinc-50 rounded p-3 hover:bg-green-600">
           Editar
         </button>
       </form>

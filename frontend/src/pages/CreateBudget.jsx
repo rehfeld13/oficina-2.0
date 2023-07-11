@@ -113,7 +113,7 @@ export function CreateBudget() {
             value={nameClient}
             onChange={handleNameClient}
             placeholder="Nome do cliente"
-            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${nameClientError ? 'border-red-500' : 'border-transparent'} `}
+            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-green-600  ${nameClientError ? 'border-red-500' : 'border-transparent'} `}
           />
         </div>
 
@@ -124,7 +124,7 @@ export function CreateBudget() {
             value={nameSeller}
             onChange={handleNameSeller}
             placeholder="Nome do vendedor"
-            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${nameSellerError ? 'border-red-500' : 'border-transparent'} `}
+            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-green-600 ${nameSellerError ? 'border-red-500' : 'border-transparent'} `}
           />
         </div>
 
@@ -135,7 +135,7 @@ export function CreateBudget() {
             value={description}
             onChange={handleDescription}
             placeholder="Descrição do orçamento"
-            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${descriptionError ? 'border-red-500' : 'border-transparent'} `}
+            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-green-600 ${descriptionError ? 'border-red-500' : 'border-transparent'} `}
           />
         </div>
 
@@ -146,22 +146,22 @@ export function CreateBudget() {
             value={value}
             onChange={handleValue}
             placeholder="Valor do orçamento"
-            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-orange-500 ${valueError ? 'border-red-500' : 'border-transparent'} `}
+            className={`outline-none border-2 text-zinc-100 p-2 rounded bg-slate-900 focus:border-green-600 ${valueError ? 'border-red-500' : 'border-transparent'} `}
           />
         </div>
 
         <div className="flex flex-col w-full gap-1">
           <label className="text-zinc-50">Data e hora</label>
-          <div className="border-2 border-transparent p-2 rounded bg-slate-900 focus:border-orange-500">
+          <div className="border-2 border-transparent p-2 rounded bg-slate-900 focus:border-green-600">
             <DateTimePicker
               className={`flex item-center justify-center border-2 text-zinc-100 bg-slate-950 rounded-sm ${dateAndTimeError ? 'border-red-500' : 'border-transparent'} `}
               onChange={handleDateAndTime}
               value={dateAndTime}
               format="dd-MM-yyyy  HH:mm"
               locale="pt-BR"
-              calendarIcon={<CalendarOutlined className="hover:text-orange-500" />}
+              calendarIcon={<CalendarOutlined className="hover:text-green-600" />}
               calendarClassName="bg-slate-950"
-              clearIcon={<CloseOutlined className="hover:text-orange-500" />}
+              clearIcon={<CloseOutlined className="hover:text-green-600" />}
               disableClock={true}
             />
           </div>
@@ -170,7 +170,7 @@ export function CreateBudget() {
         <button
           type="submit"
           onClick={handleForm}
-          className="w-full border border-orange-500 ease-in duration-150 text-zinc-50 rounded p-3 hover:bg-orange-500">
+          className="w-full border border-green-600 ease-in duration-150 text-zinc-50 rounded p-3 hover:bg-green-600">
           Cadastrar
         </button>
       </form>

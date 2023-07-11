@@ -11,7 +11,7 @@ import { SearchOutlined, PlusCircleOutlined } from '@ant-design/icons';
 
 export function Header() {
   return (
-    <header className='flex items-center justify-between bg-orange-500 w-full h-20 gap-4 p-8'>
+    <header className='flex items-center justify-between bg-green-600 w-full h-20 gap-4 p-8'>
       <Link to="/" className='flex items-center'>
         <span className='text-zinc-100 font-bold bg-slate-900 p-1 rounded-sm text-md text-center sm:text-2xl'>
           Oficina 2.0

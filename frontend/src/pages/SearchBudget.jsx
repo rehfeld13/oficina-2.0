@@ -79,7 +79,7 @@ export function SearchBudget() {
   const renderContent = () => {
     if (budgets.length === 0) {
       return (
-        <span className="flex gap-1 items-center text-zinc-100 w-72 bg-slate-900 border border-orange-500 p-5 rounded-sm">
+        <span className="flex gap-1 items-center text-zinc-100 w-72 bg-slate-900 border border-green-600 p-5 rounded-sm">
           Ops, nenhum orçamento encontrado!
           <RobotOutlined className="text-lg" />
         </span>
@@ -97,19 +97,19 @@ export function SearchBudget() {
           placeholder="Nome do cliente"
           value={clientName}
           onChange={(e) => setClientName(e.target.value)}
-          className="border border-orange-500 text-sm bg-transparent ease-in duration-150 text-zinc-50 rounded p-1"
+          className="border border-green-600 text-sm bg-transparent ease-in duration-150 text-zinc-50 rounded p-1"
         />
         <input
           type="text"
           placeholder="Nome do vendedor"
           value={sellerName}
           onChange={(e) => setSellerName(e.target.value)}
-          className="border border-orange-500 text-sm  bg-transparent ease-in duration-150 text-zinc-50 rounded p-1"
+          className="border border-green-600 text-sm  bg-transparent ease-in duration-150 text-zinc-50 rounded p-1"
         />
         <div className="flex flex-col sm:flex-row gap-1 items-center">
           <label className="text-zinc-100 text-sm">Data inicial</label>
           <DateTimePicker
-            className="w-full border border-orange-500 bg-transparent ease-in duration-150 text-zinc-50 rounded p-1"
+            className="w-full border border-green-600 bg-transparent ease-in duration-150 text-zinc-50 rounded p-1"
             format="dd-MM-yyyy HH:mm"
             value={startDate}
             onChange={(date) => setStartDate(date)}
@@ -123,7 +123,7 @@ export function SearchBudget() {
         <div className="flex flex-col sm:flex-row gap-1 items-center">
           <label className="text-zinc-100 text-sm">Data final</label>
           <DateTimePicker
-            className="w-full border border-orange-500 bg-transparent ease-in duration-150 text-zinc-50 rounded p-1"
+            className="w-full border border-green-600 bg-transparent ease-in duration-150 text-zinc-50 rounded p-1"
             format="dd-MM-yyyy HH:mm"
             value={endDate}
             onChange={(date) => setEndDate(date)}
@@ -134,7 +134,7 @@ export function SearchBudget() {
             disableClock={true}
           />
         </div>
-        <button onClick={fetchBudgets} className="border text-sm  border-orange-500 ease-in duration-150 text-zinc-50 rounded p-1 hover:bg-orange-500">
+        <button onClick={fetchBudgets} className="border text-sm  border-green-600 ease-in duration-150 text-zinc-50 rounded p-1 hover:bg-green-600">
           Pesquisar
         </button>
       </div>
@@ -144,41 +144,41 @@ export function SearchBudget() {
       <ul className="flex flex-col gap-10 w-full items-center">
         {budgets.map((budget) => {
           return (
-            <li key={budget.id} className="flex flex-col bg-slate-900 border border-orange-500 rounded-sm p-5 gap-2 w-11/12 sm:w-2/5 break-words relative">
+            <li key={budget.id} className="flex flex-col bg-slate-900 border border-green-600 rounded-sm p-5 gap-2 w-11/12 sm:w-2/5 break-words relative">
               <div className="self-center">
                 <span className="text-zinc-100 font-bold">Orçamento #{budget.id}</span>
-                <button onClick={() => deleteBudget(budget.id)} className="w-6 h-6 flex justify-center items-center border bg-slate-950 border-orange-500 rounded-full bg-sla outline-none text-zinc-100 font-bold text-sm absolute top-4 right-2 hover:bg-orange-500">
+                <button onClick={() => deleteBudget(budget.id)} className="w-6 h-6 flex justify-center items-center border bg-slate-950 border-green-600 rounded-full bg-sla outline-none text-zinc-100 font-bold text-sm absolute top-4 right-2 hover:bg-green-600">
                   <CloseOutlined />
                 </button>
 
-                <button className="w-6 h-6 flex justify-center items-center border bg-slate-950 border-orange-500 rounded-full bg-sla outline-none text-zinc-100 font-bold text-sm absolute top-4 right-9 hover:bg-orange-500">
+                <button className="w-6 h-6 flex justify-center items-center border bg-slate-950 border-green-600 rounded-full bg-sla outline-none text-zinc-100 font-bold text-sm absolute top-4 right-9 hover:bg-green-600">
                   <Link className="flex items-center" to={{ pathname: "/budget/edit/" + budget.id }}>
                     <EditOutlined />
                   </Link>
                 </button>
               </div>
 
-              <span className="bg-orange-500 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
                 <UserOutlined />
                 Nome do cliente: {budget.nameClient}
               </span>
 
-              <span className="bg-orange-500 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
                 <UserSwitchOutlined />
                 Nome do vendedor: {budget.nameSeller}
               </span>
 
-              <span className="bg-orange-500 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
                 <CommentOutlined />
                 Descrição do orçamento: {budget.description}
               </span>
 
-              <span className="bg-orange-500 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
                 <WalletOutlined />
                 Valor orçado: {budget.value}R$
               </span>
 
-              <span className="bg-orange-500 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
                 <ClockCircleOutlined />
                 Data e hora: {budget.dateAndTime}
               </span>
