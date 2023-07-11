@@ -1,4 +1,4 @@
-![OFICINA](https://github.com/rehfeld13/oficina-2.0/assets/88861731/e9ef3fe0-8335-4d42-a5c3-63497926faac)
+![OFICINA (1)](https://github.com/rehfeld13/oficina-2.0/assets/88861731/9b72f365-6ab7-4f10-afe9-b11799a842de)
 
 # Projeto OFICINA 2.0
 
