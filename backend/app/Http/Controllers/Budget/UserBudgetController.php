@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Budget;
 use Carbon\Carbon;
+use App\Http\Requests\IndexBudgetRequest;
+use App\Http\Requests\CreateBudgetRequest;
+use App\Http\Requests\UpdateBudgetRequest;
+
 
 /**
  * Class UserBudgetController
@@ -20,7 +24,7 @@ class UserBudgetController extends Controller
      * @param Request $request The request object.
      * @return \Illuminate\Http\JsonResponse The JSON response.
      */
-    public function index(Request $request)
+    public function index(IndexBudgetRequest $request)
     {
         $query = Budget::query();
 
@@ -58,13 +62,6 @@ class UserBudgetController extends Controller
     {
         $budget = Budget::find($id);
 
-        if (!$budget) {
-            return response()->json([
-                'status' => '404',
-                'message' => 'Orçamento não encontrado!'
-            ], 404);
-        }
-
         return response()->json([
             'status' => '200',
             'budget' => $budget
@@ -77,35 +74,20 @@ class UserBudgetController extends Controller
      * @param Request $request The request object.
      * @return \Illuminate\Http\JsonResponse The JSON response.
      */
-    public function create(Request $request)
+    public function create(CreateBudgetRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'nameClient' => 'required',
-            'nameSeller' => 'required',
-            'description' => 'required',
-            'value' => 'required',
-            'dateAndTime' => 'required',
-        ]);
+        $model = new Budget();
+        $model->nameClient = $request->nameClient;
+        $model->nameSeller = $request->nameSeller;
+        $model->description = $request->description;
+        $model->value = $request->value;
+        $model->dateAndTime = Carbon::createFromFormat('Y-m-d\TH:i:s', $request->dateAndTime);
+        $model->save();
 
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => '422',
-                'error' => $validator->errors()
+         return response()->json([
+            'status' => '200',
+            'msg' => 'Orçamento cadastrado com sucesso!'
             ]);
-        } else {
-            $model = new Budget();
-            $model->nameClient = $request->nameClient;
-            $model->nameSeller = $request->nameSeller;
-            $model->description = $request->description;
-            $model->value = $request->value;
-            $model->dateAndTime = Carbon::createFromFormat('Y-m-d\TH:i:s', $request->dateAndTime);
-            $model->save();
-
-            return response()->json([
-                'status' => '200',
-                'msg' => 'Orçamento cadastrado com sucesso!'
-            ]);
-        }
     }
 
     /**
@@ -115,7 +97,7 @@ class UserBudgetController extends Controller
      * @param int $id The budget ID.
      * @return \Illuminate\Http\JsonResponse The JSON response.
      */
-    public function update(Request $request, $id)
+    public function update(UpdateBudgetRequest $request, $id)
     {
         if (Budget::where('id', $id)->exists()) {
             $budget = Budget::find($id);
@@ -128,10 +110,6 @@ class UserBudgetController extends Controller
             return response()->json([
                 'message' => 'Orçamento editado com sucesso!'
             ], 200);
-        } else {
-            return response()->json([
-                'message' => 'Orçamento não encontrado!'
-            ], 404);
         }
     }
 
@@ -144,13 +122,6 @@ class UserBudgetController extends Controller
     public function delete($id)
     {
         $budget = Budget::find($id);
-
-        if (!$budget) {
-            return response()->json([
-                'status' => '404',
-                'error' => 'Budget not found'
-            ], 404);
-        }
 
         $budget->delete();
 
