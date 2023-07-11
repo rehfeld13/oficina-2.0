@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-  @apply bg-slate-950;
+  @apply bg-white;
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
