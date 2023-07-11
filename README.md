@@ -9,9 +9,9 @@ Bem-vindo ao projeto Oficina 2.0! Este repositório contém o código-fonte do f
 Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
 
 - PHP (PHP 8.2.7 ou superior)
-  ```
-  Certifique-se que no arquivo php.ini ("C:\php\php.ini") os seguintes arquivos: extension=fileinfo, extension=pdo_mysql, extension=zip não estejam com ";" antes do nome, por exemplo ";extension".
-  ```
+
+  `Certifique-se que no arquivo php.ini ("C:\php\php.ini") os seguintes arquivos: extension=fileinfo, extension=pdo_mysql, extension=zip não estejam com ";" antes do nome, por exemplo ";extension".`
+ 
 - MySQL (8.0.33 ou superior)
 - Node.js (18.15.0 ou superior)
 - Composer(v2.5.8 ou superior)
