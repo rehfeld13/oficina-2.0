@@ -47,8 +47,8 @@ Com o PHP e o Composer devidamente instalados, siga os passos abaixo para config
    ```
 3. Repare que no seu código tem um arquivo `.env.example`, copie ele e renomeie a cópia como `.env`.
 4. Abra o arquivo .env e configure as variáveis de ambiente necessárias:
--`DB_DATABASE`: O nome do seu database criado no MYSQL
--`DB_PASSWORD`: A senha do seu MYSQL.
+    -`DB_DATABASE`: O nome do seu database criado no MYSQL
+    -`DB_PASSWORD`: A senha do seu MYSQL.
 
 ![image](https://github.com/rehfeld13/oficina-2.0/assets/88861731/a33aff06-7d3a-4d8d-b164-b4420b6de420)
 
