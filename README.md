@@ -2,7 +2,7 @@
 
 # Projeto OFICINA 2.0
 
-Bem-vindo ao projeto Oficina 2.0! Este repositório contém o código-fonte do front-end utilizando React.js e do back-end utilizando Laravel. Siga as instruções abaixo para configurar o ambiente de desenvolvimento.
+Bem-vindo ao projeto Oficina 2.0! Baixe o zip com o código-fonte do front-end utilizando React.js e do back-end utilizando Laravel. Siga as instruções abaixo para configurar o ambiente de desenvolvimento.
 
 ## Pré-requisitos
 
