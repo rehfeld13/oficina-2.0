@@ -4,6 +4,9 @@
 
 Bem-vindo ao projeto Oficina 2.0! Baixe o zip com o código-fonte do front-end utilizando React.js e do back-end utilizando Laravel. Siga as instruções abaixo para configurar o ambiente de desenvolvimento.
 
+## Tasks usadas no projeto
+[![My Skills](https://skills.thijs.gg/icons?i=php,react,tailwind,laravel,git,mysql,&theme=dark)](https://skills.thijs.gg)
+
 ## Pré-requisitos
 
 Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
