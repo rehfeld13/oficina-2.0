@@ -78,9 +78,9 @@ Com o PHP e o Composer devidamente instalados, siga os passos abaixo para config
     ```
    exit
    ```
-7. Agora no terminal do back-end, execute o seguinte comando para executar as migrações e criar as tabelas no banco de dados:
+7. Agora no terminal do back-end, execute o seguinte comando para executar as migrações para criar as tabelas no banco de dados e também popular:
     ```
-   php artisan migrate
+   php artisan migrate:fresh --seed --seeder=BudgetSeeder
    ```
 8. Por fim, inicie o servidor do back-end com o seguinte comando:
     ```
