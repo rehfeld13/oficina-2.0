@@ -102,66 +102,66 @@ export function CreateBudget() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mt-10 w-full gap-8">
-      <h1 className="text-zinc-900 text-center font-bold text-4xl">Cadastrar orçamento</h1>
+    <div className="flex items-center justify-center mt-10 sm:m-auto w-full">
+      <form className="flex flex-col bg-zinc-50 shadow-md shadow-zinc-500/50 items-start w-11/12 lg:w-1/4 gap-4 p-5 pb-8 pr-8 pl-8">
 
-      <form className="flex flex-col items-center w-10/12 gap-8">
-        <div className="flex flex-col w-full sm:w-2/4 gap-1">
-          <label className="text-green-800 font-bold">Nome do cliente:</label>
+        <h1 className="text-zinc-800 text-center font-bold text-3xl">Cadastrar orçamento</h1>
+        <div className="flex flex-col w-full gap-1">
+          <label className="text-green-800 text-sm  font-bold">Nome do cliente:</label>
           <input
             type="text"
             value={nameClient}
             onChange={handleNameClient}
             placeholder="Nome do cliente"
-            className={`outline-none border text-zinc-900 p-2 rounded  placeholder:text-zinc-500 focus:border-green-700 ${nameClientError ? 'border-red-500' : 'border-zinc-400'} `}
+            className={`outline-none border text-sm  text-zinc-900 p-2 placeholder:text-zinc-500 focus:border-green-700 ${nameClientError ? 'border-red-500' : 'border-zinc-400'} `}
           />
         </div>
 
-        <div className="flex flex-col w-full sm:w-2/4 gap-1">
-          <label className="text-green-800 font-bold">Nome do vendedor:</label>
+        <div className="flex flex-col w-full  gap-1">
+          <label className="text-green-800 text-sm  font-bold">Nome do vendedor:</label>
           <input
             type="text"
             value={nameSeller}
             onChange={handleNameSeller}
             placeholder="Nome do vendedor"
-            className={ `outline-none border text-zinc-900 p-2 rounded  placeholder:text-zinc-500  focus:border-green-700 ${nameSellerError ? 'border-red-500' : 'border-zinc-400'} `}
+            className={ `outline-none text-sm  border   text-zinc-900 p-2   placeholder:text-zinc-500  focus:border-green-700 ${nameSellerError ? 'border-red-500' : 'border-zinc-400'} `}
           />
         </div>
 
-        <div className="flex flex-col w-full sm:w-2/4 gap-1">
-          <label className="text-green-800 font-bold">Descrição do orçamento:</label>
+        <div className="flex flex-col w-full  gap-1">
+          <label className="text-green-800 text-sm  font-bold">Descrição do orçamento:</label>
           <textarea
             rows={3}
             value={description}
             onChange={handleDescription}
             placeholder="Descrição do orçamento"
-            className={`outline-none border text-zinc-900 p-2 rounded  placeholder:text-zinc-500  focus:border-green-700 ${descriptionError ? 'border-red-500' : 'border-zinc-400'} `}
+            className={`outline-none border text-sm    text-zinc-900 p-2   placeholder:text-zinc-500  focus:border-green-700 ${descriptionError ? 'border-red-500' : 'border-zinc-400'} `}
           />
         </div>
 
-        <div className="flex flex-col w-full sm:w-2/4 gap-1">
-          <label className="text-green-800 font-bold">Valor do orçamento (R$):</label>
+        <div className="flex flex-col w-full  gap-1">
+          <label className="text-green-800 text-sm  font-bold">Valor do orçamento (R$):</label>
           <input
             type="number"
             value={value}
             onChange={handleValue}
             placeholder="Valor do orçamento"
-            className={`outline-none border text-zinc-900 p-2 rounded  placeholder:text-zinc-500  focus:border-green-700 ${valueError ? 'border-red-500' : 'border-zinc-400'} `}
+            className={`outline-none border text-sm  text-zinc-900 p-2   placeholder:text-zinc-500  focus:border-green-700 ${valueError ? 'border-red-500' : 'border-zinc-400'} `}
           />
         </div>
 
-        <div className="flex flex-col w-full sm:w-2/4 gap-1">
-          <label className="text-green-800 font-bold">Data e hora:</label>
+        <div className="flex flex-col w-full  gap-1">
+          <label className="text-green-800 text-sm font-bold">Data e hora:</label>
           <div>
             <DateTimePicker
-              className={`flex item-center p-3 justify-center border text-zinc-600 rounded-sm  focus:border-green-700 ${dateAndTimeError ? 'border-red-500' : 'border-zinc-400'} `}
+              className={`flex item-center p-3 justify-center border text-zinc-600   focus:border-green-700 ${dateAndTimeError ? 'border-red-500' : 'border-zinc-400'} `}
               onChange={handleDateAndTime}
               value={dateAndTime}
               format="dd-MM-yyyy  HH:mm"
               locale="pt-BR"
-              calendarIcon={<CalendarOutlined />}
-              calendarClassName="bg-slate-950"
-              clearIcon={<CloseOutlined  />}
+              calendarIcon={<CalendarOutlined className="hover:text-green-700" />}
+              calendarClassName="bg-white"
+              clearIcon={<CloseOutlined className= "hover:text-green-700 "  />}
               disableClock={true}
             />
           </div>
@@ -170,7 +170,7 @@ export function CreateBudget() {
         <button
           type="submit"
           onClick={handleForm}
-          className="w-full sm:w-2/4 border bg-green-700 ease-in duration-150 text-white rounded-sm p-3 hover:bg-green-600">
+          className="w-full border bg-green-700 ease-in duration-150 text-white  p-3 hover:bg-green-600">
           Cadastrar
         </button>
       </form>

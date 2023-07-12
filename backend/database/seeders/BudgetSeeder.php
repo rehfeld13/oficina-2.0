@@ -14,7 +14,7 @@ class BudgetSeeder extends Seeder
     public function run(): void
     {
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 4; $i++) {
             Budget::create([
                 'nameClient' => 'Cliente ' . ($i + 1),
                 'nameSeller' => 'Vendedor ' . ($i + 1),

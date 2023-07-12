@@ -89,7 +89,6 @@ export function SearchBudget() {
 
   return (
     <div className="flex flex-col items-center justify-center mt-10 w-full gap-8 mb-10">
-      <h1 className="text-zinc-900 font-bold text-4xl">Orçamentos</h1>
 
       <div className="flex flex-wrap flex-col sm:flex-row gap-5 w-full items-center justify-center">
         <input
@@ -97,14 +96,14 @@ export function SearchBudget() {
           placeholder="Nome do cliente"
           value={clientName}
           onChange={(e) => setClientName(e.target.value)}
-          className="border border-zinc-400 text-sm  bg-transparent ease-in duration-150 outline-none text-zinc-900 rounded p-1 focus:border-green-700"
+          className="border border-zinc-400 text-sm  bg-transparent ease-in duration-150 outline-none text-zinc-900 rounded p-2 focus:border-green-700"
         />
         <input
           type="text"
           placeholder="Nome do vendedor"
           value={sellerName}
           onChange={(e) => setSellerName(e.target.value)}
-          className="border border-zinc-400 text-sm  bg-transparent ease-in duration-150 outline-none text-zinc-900 rounded p-1 focus:border-green-700"
+          className="border border-zinc-400 text-sm  bg-transparent ease-in duration-150 outline-none text-zinc-900 rounded p-2 focus:border-green-700"
         />
         <div className="flex flex-col sm:flex-row gap-1 items-center">
           <label className="text-green-700 font-bold text-sm">Data inicial</label>
@@ -134,60 +133,62 @@ export function SearchBudget() {
             disableClock={true}
           />
         </div>
-        <button onClick={fetchBudgets} className="border text-sm  bg-green-700 ease-in duration-150 text-zinc-50 rounded p-1 hover:bg-green-600">
+        <button onClick={fetchBudgets} className="border text-sm  bg-green-700 ease-in duration-150 text-zinc-50 rounded p-2 hover:bg-green-600">
           Pesquisar
         </button>
       </div>
 
-      {renderContent()}
-
-      <ul className="flex flex-col gap-10 w-full items-center">
+      <ul className="flex flex-col sm:flex-row flex-wrap justify-center w-full gap-5 items-center">
         {budgets.map((budget) => {
           return (
-            <li key={budget.id} className="flex flex-col bg-zinc-900 border border-green-600 rounded-sm p-5 gap-2 w-11/12 sm:w-2/5 break-words relative">
+            <li key={budget.id} className="flex flex-col bg-zinc-50 shadow-md shadow-zinc-500/50 overflow-x-auto  p-5 gap-2 w-11/12 sm:w-1/3 break-words relative">
               <div className="self-center">
-                <span className="text-zinc-100 font-bold">Orçamento #{budget.id}</span>
-                <button onClick={() => deleteBudget(budget.id)} className="w-6 h-6 flex justify-center items-center border bg-slate-950 border-green-600 rounded-full bg-sla outline-none text-zinc-100 font-bold text-sm absolute top-4 right-2 hover:bg-green-600">
+                <span className="text-zinc-900 font-bold">Orçamento #{budget.id}</span>
+                <button onClick={() => deleteBudget(budget.id)} className="w-6 h-6 flex justify-center items-center border bg-zinc-900 border-green-600 rounded-full bg-sla outline-none text-zinc-100 font-bold text-sm absolute top-4 right-2 hover:bg-green-600">
                   <CloseOutlined />
                 </button>
 
-                <button className="w-6 h-6 flex justify-center items-center border bg-slate-950 border-green-600 rounded-full bg-sla outline-none text-zinc-100 font-bold text-sm absolute top-4 right-9 hover:bg-green-600">
+                <button className="w-6 h-6 flex justify-center items-center border bg-zinc-900 border-green-600 rounded-full bg-sla outline-none text-zinc-100 font-bold text-sm absolute top-4 right-9 hover:bg-green-600">
                   <Link className="flex items-center" to={{ pathname: "/budget/edit/" + budget.id }}>
                     <EditOutlined />
                   </Link>
                 </button>
               </div>
 
-              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className=" text-zinc-900 border border-t-0 border-r-0 border-l-0 border-zinc-400 flex gap-2 items-center outline-none eak-words rounded-sm p-1">
                 <UserOutlined />
-                Nome do cliente: {budget.nameClient}
+                  <span className="font-bold">Nome do cliente:</span>{budget.nameClient}
               </span>
 
-              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className=" text-zinc-900  border border-t-0 border-r-0 border-l-0 border-zinc-400 flex gap-2 items-center outline-none break-words rounded-sm p-1">
                 <UserSwitchOutlined />
-                Nome do vendedor: {budget.nameSeller}
+                <span className="font-bold">Nome do vendedor:</span> {budget.nameSeller}
               </span>
 
-              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className=" text-zinc-900  border border-t-0 border-r-0 border-l-0 border-zinc-400 flex gap-2 items-center outline-none break-words rounded-sm p-1">
                 <CommentOutlined />
-                Descrição do orçamento: {budget.description}
+                <span className="font-bold">Descrição:</span> {budget.description}
               </span>
 
-              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className=" text-zinc-900  border border-t-0 border-r-0 border-l-0 border-zinc-400 flex gap-2 items-center outline-none break-words rounded-sm p-1">
                 <WalletOutlined />
-                Valor orçado: {budget.value}R$
+                <span className="font-bold">Valor orçado:</span> {budget.value}R$
               </span>
 
-              <span className="bg-green-600 text-zinc-100 flex gap-2 items-center outline-none border-none break-words rounded-sm p-1">
+              <span className=" text-zinc-900  border border-t-0 border-r-0 border-l-0 border-zinc-400 flex gap-2 items-center outline-none break-words rounded-sm p-1">
                 <ClockCircleOutlined />
-                Data e hora: {budget.dateAndTime}
+                <span className="font-bold">Data e hora:</span> {budget.dateAndTime}
               </span>
             </li>
           );
         })}
       </ul>
 
+      {renderContent()}
+
       <ToastContainer theme="dark" />
     </div>
   );
+
+
 }

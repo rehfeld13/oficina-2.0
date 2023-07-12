@@ -69,54 +69,54 @@ export function EditBudget() {
 
   return (
     <div className="flex flex-col items-center justify-center mt-10 w-full gap-8">
-      <h1 className="text-zinc-900 font-bold text-center text-lg sm:text-4xl">Editar Orçamento #{budget.id}</h1>
+      <h1 className="text-zinc-900 font-bold text-center text-lg sm:text-3xl">Editar Orçamento #{budget.id}</h1>
 
-      <form onSubmit={handleSubmit} className="flex flex-col items-center w-10/12 gap-8">
+      <form onSubmit={handleSubmit} className="flex flex-col items-center w-8/12 gap-8">
         <div className="flex flex-col w-full sm:w-2/4  gap-1">
-          <label className="text-green-700 font-bold">Editar nome do cliente</label>
+          <label className="text-green-700 text-sm font-bold">Editar nome do cliente</label>
           <input
             type="text"
             name="nameClient"
             value={budget.nameClient}
             onChange={handleChange}
             placeholder="Editar"
-            className="outline-none border border-zinc-400 text-zinc-950  p-2 rounded  focus:border-green-600"
+            className="outline-none border border-zinc-400 text-sm text-zinc-950  p-2 rounded  focus:border-green-600"
           />
         </div>
 
         <div className="flex flex-col w-full sm:w-2/4  gap-1">
-          <label className="text-green-700 font-bold">Editar nome do vendedor</label>
+          <label className="text-green-700 text-sm  font-bold">Editar nome do vendedor</label>
           <input
             type="text"
             name="nameSeller"
             value={budget.nameSeller}
             onChange={handleChange}
             placeholder="Editar"
-            className="outline-none border border-zinc-400 text-zinc-950  p-2 rounded  focus:border-green-600"
+            className="outline-none border border-zinc-400 text-sm text-zinc-950  p-2 rounded  focus:border-green-600"
           />
         </div>
 
         <div className="flex flex-col w-full sm:w-2/4  gap-1">
-          <label className="text-green-700 font-bold">Editar descrição</label>
+          <label className="text-green-700 text-sm  font-bold">Editar descrição</label>
           <textarea
             rows="3"
             value={budget.description}
             name="description"
             onChange={handleChange}
             placeholder="Editar"
-            className="outline-none text-zinc-950  border border-zinc-400  p-2 rounded  focus:border-green-600"
+            className="outline-none text-zinc-950 text-sm  border border-zinc-400  p-2 rounded  focus:border-green-600"
           />
         </div>
 
         <div className="flex flex-col w-full sm:w-2/4  gap-1">
-          <label className="text-green-700 font-bold">Editar valor orçado(R$)</label>
+          <label className="text-green-700 text-sm  font-bold">Editar valor orçado(R$)</label>
           <input
             type="number"
             name="value"
             value={budget.value}
             onChange={handleChange}
             placeholder="Editar"
-            className="outline-none border text-zinc-950 border-zinc-400 p-2 rounded  focus:border-green-600"
+            className="outline-none border text-zinc-950 text-sm border-zinc-400 p-2 rounded  focus:border-green-600"
           />
         </div>
 
